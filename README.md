@@ -1,10 +1,14 @@
-# NarrativeDocumentation
-Documentation for the Narrative Pro Plugin.  
+# Narrative Documentation by InBlast
+This is my try to provide a comprehensive documentation for Narrative, based on experience and reading sessions of the C++ code.  
+It is **NOT** an official documentation ([Link to official documentation](https://docs.narrativetools.io/)).  
+This documentation is not exhaustive and might contain mistakes, please be aware of that.  
+
 Please use the table of content to navigate between the different sections.  
 
 I highly advise to not directly use any class provided by Narrative. Subclass it first in BP (your BP_MasterClassName), then subclass this created master class to create the multiple versions of what you will use in your game.  
+
 ## Video Tutorials :
-[Video tutorials by Primal](https://www.youtube.com/@wonderscapecreations/playlists)
+[Video tutorials by Primal](https://www.youtube.com/@wonderscapecreations/playlists)  
 [Official Video tutorial](https://www.youtube.com/@narrativetools/playlists) 
 
 # Tales
@@ -43,79 +47,20 @@ Set up the POI variables :
 
 <img src="https://github.com/user-attachments/assets/6318551b-3a6d-4bd6-8c87-b615526dc34d" width="500">  
 
-For the POI to work correctly, you will need to run the [Navigator Utility Widget](#navigator-utility-widget)
+For the POI to work correctly, you will need to run the [Navigator Utility Widget](#utility-navigator-widget) when you finished to configure all the POI.
 
 
 ## Minimap
-TESTESTEST
 
-TESTESTEST
+### Utility Navigator Widget
 
-TESTESTEST
+Search for Utility_Navigator in the plugin files :  
+<img width="185" height="206" alt="image" src="https://github.com/user-attachments/assets/49c5fce5-02e9-4f91-b65c-edb7fb929dc0" />  
+Right click on it and chose "Run Editor Utility Widget" :  
+<img width="282" height="148" alt="image" src="https://github.com/user-attachments/assets/0929aafd-ad2f-4fe1-b78f-859169d715b6" />  
+<img src="https://github.com/user-attachments/assets/635a9368-786e-40ce-b775-05d8d7647961" width="500">  
 
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-### Navigator Utility Widget
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
-
-TESTESTEST
+If you add or modify POIs after clicking "Generate POIs", you can just run "Generate POIs" again. There is no "Delete POIs" step needed.
 
 # NPC
 ## NPC Definition

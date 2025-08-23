@@ -22,7 +22,8 @@ Even if conditions also appear in the quest graph, note that using conditions in
 
 
 # Inventory
-## Items
+## Narrative Item
+## Item Collection
 
 # Navigation
 ## POI
@@ -68,11 +69,30 @@ Right click on it and chose "Run Editor Utility Widget" :
 
 If you add or modify POIs after clicking "Generate POIs", you can just run "Generate POIs" again. There is no "Delete POIs" step needed.
 
-# NPC
-## NPC Definition
-## AI
+# Player and NPCs
+## NPC 
+### NPC Definition
+## Player
+### Player Character
+### Player Controller
+### Player State
+### Player Definition
+**_Narrative Base class :_ UPlayerDefinition** (Child of **UCharacterDefinition**)  
 
-# Player
+| Variable Name | Description |
+| ---- |----------|
+|Default Appearance| [Character Appearance](#character-appearance) The default look of your player|
+|Default Currency|The default currrency your player has|
+|Default Item Loadout|The default Items your player start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
+|Default Owned Tags|The display name in game|
+|Default Factions|The displayed icon (on minimap, worldmap, and compass) |
+|Trigger Sets|Unknown|
+|Attack Priority|Unknown|
+|Ability Configuration|Unknown|
+
+## Ability Configuration
+## Character Appearance
+
 
 # Interaction
 ## Interactable Component

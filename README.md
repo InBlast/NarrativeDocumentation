@@ -3,7 +3,8 @@ This is my try to provide a comprehensive documentation for Narrative, based on 
 It is **NOT** an official documentation ([Link to official documentation](https://docs.narrativetools.io/)).  
 This documentation is not exhaustive and might contain mistakes, please be aware of that.  
 
-Please use the table of content to navigate between the different sections.  
+Please use the table of content to navigate between the different sections :  
+<img src="https://github.com/user-attachments/assets/f13273f3-c958-4c2a-b901-f41e726c6d46" width="200"> 
 
 I highly advise to not directly use any class provided by Narrative. Subclass it first in BP (your BP_MasterClassName), then subclass this created master class to create the multiple versions of what you will use in your game.  
 
@@ -13,7 +14,12 @@ I highly advise to not directly use any class provided by Narrative. Subclass it
 
 # Tales
 ## Quests
+### Conditions
+Even if conditions also appear in the quest graph, note that using conditions in quest graph is currently unsupported  
+**_Narrative Base class :_ UNarrativeCondition** 
 ## Dialogues
+## Events
+
 
 # Inventory
 ## Items

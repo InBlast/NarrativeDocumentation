@@ -59,7 +59,7 @@ For the POI to work correctly, you will need to run the [Navigator Utility Widge
 
 ## Minimap
 
-### Utility Navigator Widget
+## Utility Navigator Widget
 
 Search for Utility_Navigator in the plugin files :  
 <img width="185" height="206" alt="image" src="https://github.com/user-attachments/assets/49c5fce5-02e9-4f91-b65c-edb7fb929dc0" />  
@@ -84,14 +84,28 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |Default Appearance| [Character Appearance](#character-appearance) The default look of your player|
 |Default Currency|The default currrency your player has|
 |Default Item Loadout|The default Items your player start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
-|Default Owned Tags|The display name in game|
-|Default Factions|The displayed icon (on minimap, worldmap, and compass) |
+|Default Owned Tags|The list of the tag the player starts with. |
+|Default Factions|The factions the player is a member of|
 |Trigger Sets|Unknown|
-|Attack Priority|Unknown|
-|Ability Configuration|Unknown|
+|Attack Priority|This influence the chance for an enemy in combat to pick the player as its target. The higher it is, the higher is the chance|
+|Ability Configuration|[Ability COnfiguration](#ability-configuration)|
 
 ## Ability Configuration
 ## Character Appearance
+ONGOING
+| Variable Name | Description |
+| ---- |----------|
+|Form Tag| Unknown|
+|Character Visual Class|Unknown|
+|Base Mesh|Unknown|
+|Hide Base Mesh|Unknown|
+|Base Mesh Anim BP|Unknown|
+|Unarmed Anim Layer|Unknown|
+|Meshes|Unknown|
+|Grooms|Unknown|
+|Morphs|Unknown|
+|Scalar Values|Unknown|
+|Vector Values|Unknown|
 
 
 # Interaction

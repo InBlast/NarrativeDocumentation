@@ -13,19 +13,33 @@ I highly advise to not directly use any class provided by Narrative. Subclass it
 [Official Video tutorial](https://www.youtube.com/@narrativetools/playlists) 
 
 # Tales
+
+It's recommended to make your own Master Dialogue and Master Quest BP. You can follow these links for that :  
+[Master Dialogue](https://docs.narrativetools.io/pro/dialogue/master-dialogue)  
+[Master Quest](https://docs.narrativetools.io/pro/quests/master-quest)  
+This way you can make modifications to all your Dialogues/Quests by editing your master BP.  
+
 ## Quests
+All Quests should inherit from your own QBP_QuestMaster BP.  
+
 ### Conditions
 Even if conditions also appear in the quest graph, note that using conditions in quest graph is currently unsupported  
 **_Narrative Base class :_ UNarrativeCondition** 
+
 ## Dialogues
+All Dialogues should inherit from your own DBP_DialogueMaster.  
+
 ## Events
 
 
 # Inventory
+
 ## Narrative Item
+
 ## Item Collection
 
 # Navigation
+
 ## POI
 **_Narrative Base class :_ APOIActor** 
 

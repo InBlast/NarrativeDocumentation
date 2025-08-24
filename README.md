@@ -52,6 +52,7 @@ A quest states represents the current step of the Quest. It needs to be followed
 
 ### Tasks
 **_Narrative Base class :_ UNarrativeTask**  
+Task are used as a condition for a quest to go to the next State.
 You can create new Tasks in Blueprint. Please note that the newly created tasks won't be accessible directly when adding a new task to the Quest Graph : add any other task, select the task node, and change the task from there :  
 <img width="724" height="218" alt="image" src="https://github.com/user-attachments/assets/91878871-c60a-485a-b2bf-4c4607ee2a84" />
 
@@ -81,8 +82,9 @@ Any Public variable you create in the task can be modifed in the Quest Graph und
 <img width="425" height="188" alt="image" src="https://github.com/user-attachments/assets/d71615ef-82e9-4cef-acfb-8a4778d48c33" />
 
 
-You need to handle the task logic in the Task BP, and run the "Complete Task" node when the task is considered as complete :  
-<img width="211" height="127" alt="image" src="https://github.com/user-attachments/assets/953568be-6356-41e6-a9dc-0b64b6e9bc6e" />
+You need to handle the task logic in the Task BP, and using the following nodes to influence the task progress :  
+<img width="642" height="172" alt="image" src="https://github.com/user-attachments/assets/a3cec8e3-2cc3-4337-bbe4-72053aaf1ed8" />
+
 
 
 ### Conditions
@@ -182,7 +184,7 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |Default Factions|The factions the player is a member of|
 |Trigger Sets|Unknown|
 |Attack Priority|This influence the chance for an enemy in combat to pick the player as its target. The higher it is, the higher is the chance|
-|Ability Configuration|[Ability COnfiguration](#ability-configuration)|
+|Ability Configuration|[Ability Configuration](#ability-configuration)|
 
 ## Ability Configuration
 ## Character Appearance

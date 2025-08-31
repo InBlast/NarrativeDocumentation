@@ -40,14 +40,14 @@ To remove the binded event, Shift+click on the spark icon on the top right of th
 
 A quest states represents the current step of the Quest. It needs to be followed by a [Task](#tasks), which will act as a condition to start the next State Node
 
-| Variable Name | Description |
-| ---- |----------|
-|State Node Type|Type of the State Node. Can be **Regular** (Quest in progress), **Success** (Quest is finished and successful, Quest end node) or **Failure** (Quest is finished but failed, Quest end node) |
-|ID|Unique Node ID, it's the current state of the quest. Used for saving purposes, but it can also be used in condition checks|
-|Description|The description of the quest as it will appear in the player Quest Journal|
-|On Entered Func Name|The Event in the EventGraph which will be called when this state Starts and when it ends (= When the next state will start)|
-|Conditions|Please ignore, currently only works in Dialogues|
-|Events|[Events](#events) A list of events to run when the State node starts/Ends or both|
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|State Node Type|EStateNodeType|Type of the State Node. Can be **Regular** (Quest in progress), **Success** (Quest is finished and successful, Quest end node) or **Failure** (Quest is finished but failed, Quest end node) |
+|ID|FName|Unique Node ID, it's the current state of the quest. Used for saving purposes, but it can also be used in condition checks|
+|Description|FText|The description of the quest as it will appear in the player Quest Journal|
+|On Entered Func Name|FName|The Event in the EventGraph which will be called when this state Starts and when it ends (= When the next state will start)|
+|Conditions|TArray\<UNarrativeCondition\>|Please ignore, currently only works in Dialogues|
+|Events|TArray\<UNarrativeEvent\>|[Events](#events) A list of events to run when the State node starts/Ends or both|
 
 
 ### Tasks
@@ -68,14 +68,14 @@ You can create new Tasks in Blueprint. Please note that the newly created tasks 
 |On Task Completed|Event run when the task is completed|
 |Tick Task|Tick event|
 
-| Variable Name | Description |
-| ---- |----------|
-|Required Quantity|The amount of time the task needs to be completed|
-|Description Override|Override of the description. Redondant in my opinion with the functions above|
-|Optional|Is the task optional?|
-|Hidden|Is the task displayed in the Quest journal ?|
-|Tick Interval|The interval for the tick function. (0=no tick, 0.5 = every 0.5s, etc...|
-|Marker Settings|The settings for the navigation marker of the task|
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|Required Quantity|Int32|The amount of time the task needs to be completed|
+|Description Override|FText|Override of the description. Redondant in my opinion with the functions above|
+|Optional|Bool|Is the task optional?|
+|Hidden|Bool|Is the task displayed in the Quest journal ?|
+|Tick Interval|Float|The interval for the tick function. (0=no tick, 0.5 = every 0.5s, etc...|
+|Marker Settings|FTaskNavigationMarker|The settings for the navigation marker of the task|
 
 Any Public variable you create in the task can be modifed in the Quest Graph under its category :
 <img width="377" height="290" alt="image" src="https://github.com/user-attachments/assets/a4419daa-5100-411f-be3d-76d3a9bea61d" />
@@ -125,14 +125,14 @@ I suggest to subclass APOIActor into your own BP, and then use this newly create
 
 A POI is a named area of your map. It could be a dungeon entrance, a city, etc... Think Skyrim and all the discoverable locations : these are POI.
 
-| Variable Name | Description |
-| ---- |----------|
-|POITag|A unique Tag for the POI. Create one for every POI you want in your world|
-|Create Map Marker|Should this POI have a world map marker visible ? (on minimap, worldmap, and compass) |
-|Supports Fast Travel|Can this POI be used to fast travel to ?|
-|POI Display Name|The display name in game|
-|POIIcon|The displayed icon (on minimap, worldmap, and compass) |
-|Linked POIs|Unknown|
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|POITag|FGameplayTag|A unique Tag for the POI. Create one for every POI you want in your world|
+|Create Map Marker|Bool|Should this POI have a world map marker visible ? (on minimap, worldmap, and compass) |
+|Supports Fast Travel|Boool|Can this POI be used to fast travel to ?|
+|POI Display Name|FText|The display name in game|
+|POIIcon|UTexture2D|The displayed icon (on minimap, worldmap, and compass) |
+|Linked POIs|TArray\<TSoftObjectPtr\<APOIActor\>\>|Unknown|
 
 **Usage :**  
 Place your BP_POI in the world :  
@@ -175,8 +175,8 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 ### Player Definition
 **_Narrative Base class :_ UPlayerDefinition** (Child of **UCharacterDefinition**)  
 
-| Variable Name | Description |
-| ---- |----------|
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
 |Default Appearance| [Character Appearance](#character-appearance) The default look of your player|
 |Default Currency|The default currrency your player has|
 |Default Item Loadout|The default Items your player start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
@@ -189,8 +189,8 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 ## Ability Configuration
 ## Character Appearance
 ONGOING
-| Variable Name | Description |
-| ---- |----------|
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
 |Form Tag| Unknown|
 |Character Visual Class|Unknown|
 |Base Mesh|Unknown|

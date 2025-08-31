@@ -177,14 +177,14 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
-|Default Appearance| [Character Appearance](#character-appearance) The default look of your player|
-|Default Currency|The default currrency your player has|
-|Default Item Loadout|The default Items your player start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
-|Default Owned Tags|The list of the tag the player starts with. |
-|Default Factions|The factions the player is a member of|
-|Trigger Sets|Unknown|
-|Attack Priority|This influence the chance for an enemy in combat to pick the player as its target. The higher it is, the higher is the chance|
-|Ability Configuration|[Ability Configuration](#ability-configuration)|
+|Default Appearance|UCharacterAppearanceBase| [Character Appearance](#character-appearance) The default look of your player|
+|Default Currency|Int32|The default currrency your player has|
+|Default Item Loadout|TArray\<FLootTableRoll\>|The default Items your player start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
+|Default Owned Tags|FGameplayTagContainer|The list of the tag the player starts with. |
+|Default Factions|FGameplayTagContainer|The factions the player is a member of|
+|Trigger Sets|TArray\<UTriggerSet\>|Unknown|
+|Attack Priority|Float|This influence the chance for an enemy in combat to pick the player as its target. The higher it is, the higher is the chance|
+|Ability Configuration|UAbilityConfiguration|[Ability Configuration](#ability-configuration)|
 
 ## Ability Configuration
 ## Character Appearance

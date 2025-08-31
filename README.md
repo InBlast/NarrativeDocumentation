@@ -11,7 +11,7 @@ I highly advise to not directly use any class provided by Narrative. Subclass it
 
 I use screenshots from the Narrative Pro open world demo as much as I can, so you can also check the same files by yourself.  
 
-## Video Tutorials :
+## Video Tutorials
 [Video tutorials by Primal](https://www.youtube.com/@wonderscapecreations/playlists)  
 [Official Video tutorial](https://www.youtube.com/@narrativetools/playlists) 
 
@@ -20,7 +20,14 @@ I use screenshots from the Narrative Pro open world demo as much as I can, so yo
 It's recommended to make your own Master Dialogue and Master Quest BP. You can follow these links for that :  
 [Master Dialogue](https://docs.narrativetools.io/pro/dialogue/master-dialogue)  
 [Master Quest](https://docs.narrativetools.io/pro/quests/master-quest)  
-This way you can make modifications to all your Dialogues/Quests by editing your master BP.  
+This way you can make modifications to all your Dialogues/Quests by editing your master BP. 
+
+## Conditions
+Even if conditions also appear in the quest graph, note that using conditions in quest graph is currently unsupported. You can only use them in Dialogues for the moment.  
+**_Narrative Base class :_ UNarrativeCondition**    
+
+## Events
+**_Narrative Base class :_ UNarrativeEvent**    
 
 # Quests
 All Quests you create should inherit from your own QBP_QuestMaster BP.  
@@ -87,17 +94,11 @@ You need to handle the task logic in the Task BP, and using the following nodes 
 
 
 
-### Conditions
-Even if conditions also appear in the quest graph, note that using conditions in quest graph is currently unsupported  
-
 # Dialogues
 
 All Dialogues you create should inherit from your own DBP_DialogueMaster.  
 
 ## Dialogue Graph
-
-
-## Events
 
 
 # Inventory
@@ -188,21 +189,25 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 
 ## Ability Configuration
 ## Character Appearance
-ONGOING
+**_Narrative Base class :_ UCharacterAppearance** (Child of **UCharacterAppearanceBase**)  
+
+Variables from the FCharacterCreatorAttributeSet :
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
-|Form Tag| Unknown|
-|Character Visual Class|Unknown|
-|Base Mesh|Unknown|
-|Hide Base Mesh|Unknown|
-|Base Mesh Anim BP|Unknown|
-|Unarmed Anim Layer|Unknown|
-|Meshes|Unknown|
-|Grooms|Unknown|
-|Morphs|Unknown|
-|Scalar Values|Unknown|
-|Vector Values|Unknown|
+|Form Tag|FGameplayTag| Unknown|
+|Character Visual Class|TSubclassOf\<ANarrativeCharacterVisual\>|Unknown|
+|Base Mesh|USkeletalMesh|Unknown|
+|Hide Base Mesh|Boool|Unknown|
+|Base Mesh Anim BP|TSubclassOf\<UAnimInstance\>|Unknown|
+|Unarmed Anim Layer|TSubclassOf\<UAnimInstance\>|Unknown|
+|Meshes|TMap\<FGameplayTag, FCharacterCreatorAttribute_Mesh\>|Unknown|
+|Grooms|TMap\<FGameplayTag, FCharacterCreatorAttribute_Groom\>|Unknown|
+|Morphs|TArray\<FCharacterCreatorAttribute_Morph\>|Unknown|
+|Scalar Values|TMap\<FGameplayTag, float\>|Unknown|
+|Vector Values|TMap\<FGameplayTag, FLinearColor\>|Unknown|
 
+## Character Appearance Base
+Base for Appearance class
 
 # Interaction
 ## Interactable Component

@@ -169,6 +169,35 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 # Player and NPCs
 ## NPC 
 ### NPC Definition
+**_Narrative Base class :_ UNPCDefinition** (Child of **UCharacterDefinition**)  
+
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|NPCID|FName|ID Used for Dialogues|
+|NPCName|FText|The name of this NPC. Will be used for the interaction and navigation markers.|
+|Min Level|int32|The NPCs level will not be lower than this value|
+|Max Level|int32|The NPCs level will not be higher than this value|
+|Allow Multiple Instances|Bool|Is this NPC unique, or can we spawn multiple of them?|
+|Unique NPCGUID|FGuid|If this NPC is unique, we'll use this as the NPCs save system GUID|
+|NPCClass Path|TSoftClassPtr<ANarrativeNPCCharacter>|Base class of the NPC|
+|Dialogue|[TSoftClassPtr<class UDialogue>](#dialogue)|The dialogue that should play when we interact with this NPC|
+|Tagged Dialogue Set|TSoftObjectPtr<class UTaggedDialogueSet>|The NPCs tagged dialogues - usually free movement dialopgues that can be kicked off via a tag "TaggedDialogue.Taunt, TaggedDialogue.Greet, etc.|
+|Is Vendor|Bool|Whether this NPCs inventory should be a vendor inventory - that is to say they are a shop vendor|
+|Trading Currency|int32|Default currency this character should have in their inventory|
+|Trading Item Loadout|TArray<FLootTableRoll>|The items we should grant the character by default.|
+|Default Currency|Int32|The default currrency your NPC has|
+|Default Item Loadout|TArray\<FLootTableRoll\>|The default Items this NPC start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
+|Activity Configuration|TSoftObjectPtr<class UNPCActivityConfiguration>|The NPCs activity config|
+|Default Appearance|UCharacterAppearanceBase| [Character Appearance](#character-appearance) The default look of your NPC|
+|Default Owned Tags|FGameplayTagContainer|The list of the tag the NPC starts with. |
+|Default Factions|FGameplayTagContainer|The factions the NPC is a member of|
+|Trigger Sets|TArray\<UTriggerSet\>|Unknown|
+|Attack Priority|Float|This influence the chance for an enemy in combat to pick the NPC as its target. The higher it is, the higher is the chance|
+|Ability Configuration|UAbilityConfiguration|[Ability Configuration](#ability-configuration)|
+
+### 
+
+
 ## Player
 ### Player Character
 ### Player Controller
@@ -178,7 +207,7 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
-|Default Appearance|UCharacterAppearanceBase| [Character Appearance](#character-appearance) The default look of your player|
+|Default Appearance|UCharacterAppearanceBase| [Character Appearance](#character-appearance) The default look of your Character|
 |Default Currency|Int32|The default currrency your player has|
 |Default Item Loadout|TArray\<FLootTableRoll\>|The default Items your player start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
 |Default Owned Tags|FGameplayTagContainer|The list of the tag the player starts with. |

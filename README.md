@@ -220,6 +220,32 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |DefaultActivities|TArray\<TSubclassOf\<class UNPCActivity\>\>|The activities to grant the NPC|
 |GoalGenerators|TArray\<TSubclassOf\<class UNPCGoalGenerator\>\>|The goal generators the NPC can use to generate goals - you can add your own goals manually via AC->AddGoal(), goals do not have to be added via generators|
 
+### NPC Activity
+**_Narrative Base class :_ UNPCActivity**  
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|Behavior Tree|TObjectPtr\<class UBehaviorTree\>|The behaviour tree the NPC needs to run when performing this activity|
+|Supported Goal Type|TSubclassOf<class UNPCGoalItem>|The goal class this activity supports, if it supports one. You can leave this empty if your activity doesn't need a goal, eg Idle, etc|
+|Is Interruptable|bool|Whether we're allowed to interrupt this activity or not|
+|Save Activity|bool|Whether this activity should be saved to disk or not|
+|Activity Name|FText|The name of the this activity|
+|Owned Tags|FGameplayTagContainer|The tags we'll grant the NPC/Settlement when this ability starts |
+|Block Tags|FGameplayTagContainer|We'll block the activity from running if the has any of these tags |
+|Require Tags|FGameplayTagContainer|We'll require these tags to be on the owner before we run the activity |
+
+### NPC Goal Item
+**_Narrative Base class :_ UNPCGoalItem**  
+
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|Remove on Succeeded|bool|If true, this goal will automatically be removed when its owning activity completes the goal|
+|Default Score|float|The default score this goal will be given if its activity doesn't override the ScoreGoal function |
+|Save Goal|bool|Whether we're allowed to interrupt this activity or not|
+|Goal Lifetime|float|Goal Expiry time. If less than zero goal will never expire and needs to be removed either by scoring < 0 or manually removed via RemoveGoal()|
+|Owned Tags|FGameplayTagContainer|The tags we'll grant the NPC when an activity acts on this goal. We'll remove when the goal ends|
+|Block Tags|FGameplayTagContainer|We'll force a low score if you have these tags, meaning the goal won't be acted on|
+|Require Tags|FGameplayTagContainer|We'll require these tags to be on the owner to act on this goal|
+
 
 
 ## Player

@@ -225,6 +225,8 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 ### NPC Activity Configuration
 **_Narrative Base class :_ UNPCActivityConfiguration** (DataAsset)  
 
+The NPC configuration is the list of the activities an NPC can perform.
+
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
 |Rescore interval|float|How often we want to re-score our goals, which may change our current activity|
@@ -234,7 +236,7 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 ### NPC Activity
 **_Narrative Base class :_ UNPCActivity**  
 
-The NPC Activity contains the logic which doesn't belong in the BT.
+The NPC Activity describe an activity that an NPC can do (Idling, Running away, following you, going to pickup something, etc.... It contains the logic which doesn't belong in the BT.
 
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
@@ -250,7 +252,7 @@ The NPC Activity contains the logic which doesn't belong in the BT.
 ### NPC Goal Item
 **_Narrative Base class :_ UNPCGoalItem**  
 
-The GoalItem contains all the data needed for a specific activity to run and will pass these data to this activity.
+The GoalItem contains all the data needed for a specific activity to run and will pass the data to this activity.
 
 | Function Name | Description |
 | ---- |----------|
@@ -271,8 +273,6 @@ The GoalItem contains all the data needed for a specific activity to run and wil
 |Owned Tags|FGameplayTagContainer|The tags we'll grant the NPC when an activity acts on this goal. We'll remove when the goal ends|
 |Block Tags|FGameplayTagContainer|We'll force a low score if you have these tags, meaning the goal won't be acted on|
 |Require Tags|FGameplayTagContainer|We'll require these tags to be on the owner to act on this goal|
-
-
 
 ## Player
 ### Player Character

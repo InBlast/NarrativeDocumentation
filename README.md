@@ -2,6 +2,8 @@
 This is my try to provide a comprehensive documentation for Narrative, based on experience and reading sessions of the C++ code.  
 It is **NOT** an official documentation ([Link to official documentation](https://docs.narrativetools.io/)).  
 This documentation is not exhaustive and might contain mistakes, please be aware of that. I encourage you to analyse as much as you can the demo provided in the plugin files, and to test by yourself.
+This documentation has been written with usage in blueprint in mind, for game designers : it doesn't details how the C++ part works or how 
+
 If you find any mistake, or if you would like to add something, please contact me on the Reubs Discord server.
 
 Use the table of content to navigate between the different sections :  
@@ -210,7 +212,7 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |Trigger Sets|TArray\<UTriggerSet\>|Unknown|
 |Attack Priority|Float|This influence the chance for an enemy in combat to pick the NPC as its target. The higher it is, the higher is the chance|
 |Ability Configuration|[Ability Configuration](#ability-configuration)|List of abilities available to the NPC|
-
+#### test
 ### Activity Configuration
 **_Narrative Base class :_ UNPCActivityConfiguration** (DataAsset)  
 
@@ -222,6 +224,9 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 
 ### NPC Activity
 **_Narrative Base class :_ UNPCActivity**  
+
+The NPC Activity contains the logic
+
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
 |Behavior Tree|TObjectPtr\<class UBehaviorTree\>|The behaviour tree the NPC needs to run when performing this activity|
@@ -235,6 +240,18 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 
 ### NPC Goal Item
 **_Narrative Base class :_ UNPCGoalItem**  
+
+The GoalItem contains all the data needed for a specific activity to run and will pass these data to this activity.
+
+| Function Name | Description |
+| ---- |----------|
+|Get Debug String| Event run when the task begins|
+|Get Goal Key| Returning a valid object will act as a key - you can access the goal later via this object, and we'll prevent goals with the same key from being added in future|
+|Get Goal Score|Return a score for the goal - The NPC will score each potential activity and pick the one with the highest score|
+|Initialize|Called when the goal is added, or loaded back in from disk|
+|On Removed|Called when the goal is removed|
+|Prepare For Save|Prepare the goal for a save - this might for example mean storing an actors GUID so we can find it later when we load|
+|Should CleanUp|Return whether the goal has become invalid and should be removed, ie if an AttackGoals target has died|
 
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|

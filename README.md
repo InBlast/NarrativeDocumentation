@@ -205,15 +205,20 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |Trading Item Loadout|[TArray\<FLootTableRoll\>](#loot-table-roll)|The items we should grant the character by default.|
 |Default Currency|Int32|The default currrency your NPC has|
 |Default Item Loadout|[TArray\<FLootTableRoll\>](#loot-table-roll)|The default Items this NPC start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
-|Activity Configuration|[TSoftObjectPtr\<class UNPCActivityConfiguration\>](#activity-configuration)|The NPCs activity config|
+|Activity Configuration|[TSoftObjectPtr\<class UNPCActivityConfiguration\>](#npc-activity-configuration)|The NPCs activity config|
 |Default Appearance|UCharacterAppearanceBase| [Character Appearance](#character-appearance) The default look of your NPC|
 |Default Owned Tags|FGameplayTagContainer|The list of the tag the NPC starts with. |
 |Default Factions|FGameplayTagContainer|The factions the NPC is a member of|
 |Trigger Sets|TArray\<UTriggerSet\>|Unknown|
 |Attack Priority|Float|This influence the chance for an enemy in combat to pick the NPC as its target. The higher it is, the higher is the chance|
 |Ability Configuration|[Ability Configuration](#ability-configuration)|List of abilities available to the NPC|
-#### test
-### Activity Configuration
+
+## NPC AI
+
+<img width="497" height="415" alt="image" src="https://github.com/user-attachments/assets/4b71f7d3-cb2f-4978-8507-9def1c848627" />
+
+
+### NPC Activity Configuration
 **_Narrative Base class :_ UNPCActivityConfiguration** (DataAsset)  
 
 | Variable Name |Variable Type| Description |
@@ -222,7 +227,7 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |DefaultActivities|TArray\<TSubclassOf\<class UNPCActivity\>\>|The activities to grant the NPC|
 |GoalGenerators|TArray\<TSubclassOf\<class UNPCGoalGenerator\>\>|The goal generators the NPC can use to generate goals - you can add your own goals manually via AC->AddGoal(), goals do not have to be added via generators|
 
-### NPC Activity
+#### NPC Activity
 **_Narrative Base class :_ UNPCActivity**  
 
 The NPC Activity contains the logic

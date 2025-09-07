@@ -1,17 +1,17 @@
 # Narrative Pro Documentation by InBlast
-This is my try to provide a comprehensive documentation for Narrative, based on experience and reading sessions of the C++ code.  
+This is my try to provide a comprehensive documentation for Narrative Pro, based on experience and reading sessions of the C++ code.  
 It is **NOT** an official documentation ([Link to official documentation](https://docs.narrativetools.io/)).  
-This documentation is not exhaustive and might contain mistakes, please be aware of that. I encourage you to analyse as much as you can the demo provided in the plugin files, and to test by yourself.
-This documentation has been written with usage in blueprint in mind, for game designers : it doesn't details how the C++ part works or how 
-
-If you find any mistake, or if you would like to add something, please contact me on the Reubs Discord server.
+This documentation is not exhaustive and might contain mistakes, please be aware of that. I encourage you to analyse as much as you can the demo provided in the plugin files, and to test by yourself.  
+This documentation has been written with usage in blueprint in mind, for game designers : it doesn't details how the C++ part works, only what a game designer needs to know to work in BP with Narrative Pro.  
 
 Use the table of content to navigate between the different sections :  
 <img src="https://github.com/user-attachments/assets/f13273f3-c958-4c2a-b901-f41e726c6d46" width="200"> 
 
 I highly advise to not directly use any class provided by Narrative. Subclass it first in BP (your BP_MasterClassName), then subclass this created master class to create the multiple versions of what you will use in your game. This way you can easily update Narrative Pro. If you need to do modifications in the plugin C++ code, please keep in mind that you will need to remake them in case of Narrative update.  
 
-I use screenshots from the Narrative Pro open world demo as much as I can, so you can also check the same files by yourself.  
+I use screenshots from the Narrative Pro open world demo as much as I can, so you can also check the same files by yourself.   
+
+If you find any mistake, or if you would like to add something, please contact me on the Reubs Discord server.
 
 ## Video Tutorials
 [Video tutorials by Primal](https://www.youtube.com/@wonderscapecreations/playlists)  
@@ -25,8 +25,13 @@ It's recommended to make your own Master Dialogue and Master Quest BP. You can f
 This way you can make modifications to all your Dialogues/Quests by editing your master BP. 
 
 ## Conditions
+**_Narrative Base class :_ UNarrativeCondition**  
 Even if conditions also appear in the quest graph, note that using conditions in quest graph is currently unsupported. You can only use them in Dialogues for the moment.  
-**_Narrative Base class :_ UNarrativeCondition**    
+
+| Function Name | Description |
+| ---- |----------|
+|Check Condition|Check whether this condition is true or false|
+|Get Graph Display Text|Define the text that will show up on a node if this condition is added to it|
 
 ## Events
 **_Narrative Base class :_ UNarrativeEvent**    

@@ -102,8 +102,19 @@ All Dialogues you create should inherit from your own DBP_DialogueMaster.
 
 
 ## Tagged Dialogue Set  
+**_Narrative Base class :_ UTaggedDialogueSet** (DataAsset)  
 
+This asset is a list of FTaggedDialogue :
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|Tag|FGameplayTag|The tag that will kick off this dialogue|
+|Dialogue|[TSoftClassPtr\<class UDialogue\>](#dialogues)|The Dialogue to play|
+|Cooldown|float|The amount of time we should cooldown before playing this dialogue again|
+|Max Distance|float|Tagged dialogue wont play unless we're within this range from it|
+|Required Tags|FGameplayTagContainer|Tags that if owned by the NPC, will prevent this dialogue beginning. For example, we wouldn't want to greet a player if we were fighting someone|
+|Blocked Tags|FGameplayTagContainer|Tags that if owned by the NPC, will prevent this dialogue beginning. For example, we wouldn't want to greet a player if we were fighting someone|
 
+This is used to trigger a dialogue when a specific tag is added to the NPC. NPCs in the demo have some tags already working with that, not sure of how it works yet.
 # Inventory
 
 ## Narrative Item
@@ -192,7 +203,7 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |Trading Item Loadout|[TArray\<FLootTableRoll\>](#loot-table-roll)|The items we should grant the character by default.|
 |Default Currency|Int32|The default currrency your NPC has|
 |Default Item Loadout|[TArray\<FLootTableRoll\>](#loot-table-roll)|The default Items this NPC start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
-|Activity Configuration|TSoftObjectPtr\<class UNPCActivityConfiguration\>|The NPCs activity config|
+|Activity Configuration|[TSoftObjectPtr\<class UNPCActivityConfiguration\>](#activity-configuration)|The NPCs activity config|
 |Default Appearance|UCharacterAppearanceBase| [Character Appearance](#character-appearance) The default look of your NPC|
 |Default Owned Tags|FGameplayTagContainer|The list of the tag the NPC starts with. |
 |Default Factions|FGameplayTagContainer|The factions the NPC is a member of|
@@ -200,7 +211,15 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |Attack Priority|Float|This influence the chance for an enemy in combat to pick the NPC as its target. The higher it is, the higher is the chance|
 |Ability Configuration|[Ability Configuration](#ability-configuration)|List of abilities available to the NPC|
 
-### 
+### Activity Configuration
+**_Narrative Base class :_ UNPCActivityConfiguration** (DataAsset)  
+
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|Rescore interval|float|How often we want to re-score our goals, which may change our current activity|
+|DefaultActivities|TArray\<TSubclassOf\<class UNPCActivity\>\>|The activities to grant the NPC|
+|GoalGenerators|TArray\<TSubclassOf\<class UNPCGoalGenerator\>\>|The goal generators the NPC can use to generate goals - you can add your own goals manually via AC->AddGoal(), goals do not have to be added via generators|
+
 
 
 ## Player
@@ -231,7 +250,7 @@ Variables from the FCharacterCreatorAttributeSet :
 |Form Tag|FGameplayTag| Unknown|
 |Character Visual Class|TSubclassOf\<ANarrativeCharacterVisual\>|Unknown|
 |Base Mesh|USkeletalMesh|Unknown|
-|Hide Base Mesh|Boool|Unknown|
+|Hide Base Mesh|Bool|Unknown|
 |Base Mesh Anim BP|TSubclassOf\<UAnimInstance\>|Unknown|
 |Unarmed Anim Layer|TSubclassOf\<UAnimInstance\>|Unknown|
 |Meshes|TMap\<FGameplayTag, FCharacterCreatorAttribute_Mesh\>|Unknown|

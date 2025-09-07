@@ -98,7 +98,10 @@ You need to handle the task logic in the Task BP, and using the following nodes 
 
 All Dialogues you create should inherit from your own DBP_DialogueMaster.  
 
-## Dialogue Graph
+## Dialogue Graph  
+
+
+## Tagged Dialogue Set  
 
 
 # Inventory
@@ -106,6 +109,8 @@ All Dialogues you create should inherit from your own DBP_DialogueMaster.
 ## Narrative Item
 
 ## Item Collection
+
+## Loot Table Roll
 
 # Navigation
 
@@ -180,20 +185,20 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |Allow Multiple Instances|Bool|Is this NPC unique, or can we spawn multiple of them?|
 |Unique NPCGUID|FGuid|If this NPC is unique, we'll use this as the NPCs save system GUID|
 |NPCClass Path|TSoftClassPtr\<ANarrativeNPCCharacter\>|Base class of the NPC|
-|Dialogue|[TSoftClassPtr\<class UDialogue\>](#dialogue)|The dialogue that should play when we interact with this NPC|
-|Tagged Dialogue Set|TSoftObjectPtr\<class UTaggedDialogueSet\>|The NPCs tagged dialogues - usually free movement dialopgues that can be kicked off via a tag "TaggedDialogue.Taunt, TaggedDialogue.Greet, etc.|
+|Dialogue|[TSoftClassPtr\<class UDialogue\>](#dialogues)|The dialogue that should play when we interact with this NPC|
+|Tagged Dialogue Set|[TSoftObjectPtr\<class UTaggedDialogueSet\>](#tagged-dialogue-set)|The NPCs tagged dialogues - usually free movement dialopgues that can be kicked off via a tag "TaggedDialogue.Taunt, TaggedDialogue.Greet, etc.|
 |Is Vendor|Bool|Whether this NPCs inventory should be a vendor inventory - that is to say they are a shop vendor|
 |Trading Currency|int32|Default currency this character should have in their inventory|
-|Trading Item Loadout|TArray\<FLootTableRoll\>|The items we should grant the character by default.|
+|Trading Item Loadout|[TArray\<FLootTableRoll\>](#loot-table-roll)|The items we should grant the character by default.|
 |Default Currency|Int32|The default currrency your NPC has|
-|Default Item Loadout|TArray\<FLootTableRoll\>|The default Items this NPC start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
+|Default Item Loadout|[TArray\<FLootTableRoll\>](#loot-table-roll)|The default Items this NPC start with. Can be [Narrative Item](#narrrative-item), [Item Collection](#item-collection) and/or a roll table|
 |Activity Configuration|TSoftObjectPtr\<class UNPCActivityConfiguration\>|The NPCs activity config|
 |Default Appearance|UCharacterAppearanceBase| [Character Appearance](#character-appearance) The default look of your NPC|
 |Default Owned Tags|FGameplayTagContainer|The list of the tag the NPC starts with. |
 |Default Factions|FGameplayTagContainer|The factions the NPC is a member of|
 |Trigger Sets|TArray\<UTriggerSet\>|Unknown|
 |Attack Priority|Float|This influence the chance for an enemy in combat to pick the NPC as its target. The higher it is, the higher is the chance|
-|Ability Configuration|UAbilityConfiguration|[Ability Configuration](#ability-configuration)|
+|Ability Configuration|[Ability Configuration](#ability-configuration)|List of abilities available to the NPC|
 
 ### 
 

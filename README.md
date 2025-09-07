@@ -215,7 +215,11 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 
 ## NPC AI
 
-<img width="497" height="415" alt="image" src="https://github.com/user-attachments/assets/4b71f7d3-cb2f-4978-8507-9def1c848627" />
+<img width="490" height="394" alt="image" src="https://github.com/user-attachments/assets/c2fefac3-b911-4cd2-a71a-b01cece341d5" />
+
+1. Every "Rescore Interval" (NPCActivityConfiguration), the NPCAC will, for every Default NPCActivity, request a score from the NPCGoalItem (Default Score, or GetGoalScore if overwritten).  
+2. The NPCActivity with the highest score meeting all tag requirements will be chosen as active activity.
+3. The chosen activity will replace the BT/BB of the NPC, and run until changed  
 
 
 ### NPC Activity Configuration
@@ -227,10 +231,10 @@ If you add or modify POIs after clicking "Generate POIs", you can just run "Gene
 |DefaultActivities|TArray\<TSubclassOf\<class UNPCActivity\>\>|The activities to grant the NPC|
 |GoalGenerators|TArray\<TSubclassOf\<class UNPCGoalGenerator\>\>|The goal generators the NPC can use to generate goals - you can add your own goals manually via AC->AddGoal(), goals do not have to be added via generators|
 
-#### NPC Activity
+### NPC Activity
 **_Narrative Base class :_ UNPCActivity**  
 
-The NPC Activity contains the logic
+The NPC Activity contains the logic which doesn't belong in the BT.
 
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|

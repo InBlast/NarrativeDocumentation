@@ -114,45 +114,47 @@ The Dialogue Graph is a succession of NPC Dialogue line and Player response.
 
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
-|ID|||
-|Selecting Reply Shot|||
-|Text|||
-|Duration|||
-|Dialogue Sound|||
-|Body Animation|||
-|Facial Animation|||
-|Shot|||
-|Conditions|||
-|Alternative Lines|||
-|Is Skippable|bool||
-|NPCReplies||For debug purposes only, it should be automatically populated based on how you do the graph|
-|Player Replies||For debug purposes only, it should be automatically populated based on how you do the graph|
-|Compact View|||
-|Conditions|||
-|Events|||
+|ID|FName|An optional ID for this node, can be left empty|
+|Selecting Reply Shot|UNarrativeDialogueSequence|Sequence to play when player is selecting their reply after this shot has played|
+|Text|FText|The text for this dialogue node. Narrative will automatically display this on the NarrativeDefaultUI if you're using that, otherwise you can simply grab this
+yourself if you're making your own dialogue UI - it is readable from Blueprints|
+|Duration|ELineDuration|The duration the line should play for|
+|Dialogue Sound|USoundBase|If a dialogue sound is selected, narrative will automatically play the sound for you in 3D space, at the location of the speaker. If narrative can't find a speaker actor (for example if you were getting a phone call where there isn't an physical speaker) it will be played in 2D|
+|Body Animation|UAnimMontage|Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Body" added to it|
+|Facial Animation|UAnimMontage|Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Face" added to it|
+|Shot|UNarrativeDialogueSequence|Shot to play for this line. Overrides speaker shot if one is set |
+|Conditions|TArray\<UNarrativeCondition\>|Optional conditions the line must pass for it to be selected |
+|Alternative Lines|TArray\<FDialogueLine\>|If alternative lines are added in here, narrative will randomly select either the main line or one of the alternatives|
+|Is Skippable|bool|Should pressing the enter key allow this line to be skipped?|
+|NPCReplies|TArray\<UDialogueNode_NPC\>|For debug purposes only, it should be automatically populated based on how you do the graph|
+|Player Replies|TArray\<UDialogueNode_Player\>|For debug purposes only, it should be automatically populated based on how you do the graph|
+|Compact View|bool|If true, the dialogue editor will style this node in a compact form|
+|Conditions|TArray\<UNarrativeCondition\>|This node only appears if the following conditions are met. In multiplayer games the server will check the conditions to ensure your game is server authoritative.|
+|Events|TArray\<UNarrativeEvent\>|Events that should fire when this is reached. These are supported by both quests and dialogues, and will fire on both client and server|
 
 ### Player reponse
 
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
-|ID|||
-|Option Text|||
-|Hint Text|||
-|Auto Select|||
-|Text|||
-|Duration|||
-|Dialogue Sound|||
-|Body Animation|||
-|Facial Animation|||
-|Shot|||
-|Conditions|||
-|Alternative Lines|||
-|Is Skippable|bool||
-|NPCReplies||For debug purposes only, it should be automatically populated based on how you do the graph|
+|ID|FName|An optional ID for this node, can be left empty|
+|Option Text|FText|The shortened text to display for dialogue option when it shows up in the list of available responses. If left empty narrative will just use the main text|
+|Hint Text|FText|Optional hint text after the option text, ie (Lie, Persauade, Begin Quest) If left empty narrative will see if events have hint text|
+|Auto Select|bool|If true, this dialogue option will be automatically selected instead of the player having to select it from the UI|
+|Text|FText|The text for this dialogue node. Narrative will automatically display this on the NarrativeDefaultUI if you're using that, otherwise you can simply grab this
+yourself if you're making your own dialogue UI - it is readable from Blueprints|
+|Duration|ELineDuration|The duration the line should play for|
+|Dialogue Sound|USoundBase|If a dialogue sound is selected, narrative will automatically play the sound for you in 3D space, at the location of the speaker. If narrative can't find a speaker actor (for example if you were getting a phone call where there isn't an physical speaker) it will be played in 2D|
+|Body Animation|UAnimMontage|Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Body" added to it|
+|Facial Animation|UAnimMontage|Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Face" added to it|
+|Shot|UNarrativeDialogueSequence|Shot to play for this line. Overrides speaker shot if one is set |
+|Conditions|TArray\<UNarrativeCondition\>|Optional conditions the line must pass for it to be selected |
+|Alternative Lines|TArray\<FDialogueLine\>|If alternative lines are added in here, narrative will randomly select either the main line or one of the alternatives|
+|Is Skippable|bool|Should pressing the enter key allow this line to be skipped?|
+|NPCReplies|TArray\<UDialogueNode_NPC\>|For debug purposes only, it should be automatically populated based on how you do the graph|
 |Player Replies||For debug purposes only, it should be automatically populated based on how you do the graph|
-|Compact View|||
-|Conditions|||
-|Events|||
+|Compact View|bool|If true, the dialogue editor will style this node in a compact form|
+|Conditions|TArray\<UNarrativeCondition\>|This node only appears if the following conditions are met. In multiplayer games the server will check the conditions to ensure your game is server authoritative.|
+|Events|TArray\<UNarrativeEvent\>|Events that should fire when this is reached. These are supported by both quests and dialogues, and will fire on both client and server|
 
 
 

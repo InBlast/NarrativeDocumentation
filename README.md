@@ -107,6 +107,54 @@ All Dialogues you create should inherit from your own DBP_DialogueMaster.
 
 ## Dialogue Graph  
 
+The Dialogue Graph is a succession of NPC Dialogue line and Player response.
+
+
+### NPC Dialogue line
+
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|ID|||
+|Selecting Reply Shot|||
+|Text|||
+|Duration|||
+|Dialogue Sound|||
+|Body Animation|||
+|Facial Animation|||
+|Shot|||
+|Conditions|||
+|Alternative Lines|||
+|Is Skippable|bool||
+|NPCReplies||For debug purposes only, it should be automatically populated based on how you do the graph|
+|Player Replies||For debug purposes only, it should be automatically populated based on how you do the graph|
+|Compact View|||
+|Conditions|||
+|Events|||
+
+### Player reponse
+
+| Variable Name |Variable Type| Description |
+| ---- |---|----------|
+|ID|||
+|Option Text|||
+|Hint Text|||
+|Auto Select|||
+|Text|||
+|Duration|||
+|Dialogue Sound|||
+|Body Animation|||
+|Facial Animation|||
+|Shot|||
+|Conditions|||
+|Alternative Lines|||
+|Is Skippable|bool||
+|NPCReplies||For debug purposes only, it should be automatically populated based on how you do the graph|
+|Player Replies||For debug purposes only, it should be automatically populated based on how you do the graph|
+|Compact View|||
+|Conditions|||
+|Events|||
+
+
 
 ## Tagged Dialogue Set  
 **_Narrative Base class :_ UTaggedDialogueSet** (DataAsset)  

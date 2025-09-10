@@ -116,8 +116,7 @@ The Dialogue Graph is a succession of NPC Dialogue line and Player response.
 | ---- |---|----------|
 |ID|FName|An optional ID for this node, can be left empty|
 |Selecting Reply Shot|UNarrativeDialogueSequence|Sequence to play when player is selecting their reply after this shot has played|
-|Text|FText|The text for this dialogue node. Narrative will automatically display this on the NarrativeDefaultUI if you're using that, otherwise you can simply grab this
-yourself if you're making your own dialogue UI - it is readable from Blueprints|
+|Text|FText|The text for this dialogue node. Narrative will automatically display this on the NarrativeDefaultUI if you're using that, otherwise you can simply grab this yourself if you're making your own dialogue UI - it is readable from Blueprints|
 |Duration|ELineDuration|The duration the line should play for|
 |Dialogue Sound|USoundBase|If a dialogue sound is selected, narrative will automatically play the sound for you in 3D space, at the location of the speaker. If narrative can't find a speaker actor (for example if you were getting a phone call where there isn't an physical speaker) it will be played in 2D|
 |Body Animation|UAnimMontage|Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Body" added to it|

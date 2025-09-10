@@ -115,13 +115,13 @@ The Dialogue Graph is a succession of NPC Dialogue line and Player response.
 | Variable Name |Variable Type| Description |
 | ---- |---|----------|
 |ID|FName|An optional ID for this node, can be left empty|
-|Selecting Reply Shot|UNarrativeDialogueSequence|Sequence to play when player is selecting their reply after this shot has played|
+|Selecting Reply Shot|[UNarrativeDialogueSequence](#narrative-dialogue-sequence)|Sequence to play when player is selecting their reply after this shot has played|
 |Text|FText|The text for this dialogue node. Narrative will automatically display this on the NarrativeDefaultUI if you're using that, otherwise you can simply grab this yourself if you're making your own dialogue UI - it is readable from Blueprints|
 |Duration|ELineDuration|The duration the line should play for|
 |Dialogue Sound|USoundBase|If a dialogue sound is selected, narrative will automatically play the sound for you in 3D space, at the location of the speaker. If narrative can't find a speaker actor (for example if you were getting a phone call where there isn't an physical speaker) it will be played in 2D|
 |Body Animation|UAnimMontage|Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Body" added to it|
 |Facial Animation|UAnimMontage|Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Face" added to it|
-|Shot|UNarrativeDialogueSequence|Shot to play for this line. Overrides speaker shot if one is set |
+|Shot|[UNarrativeDialogueSequence](#narrative-dialogue-sequence)|Shot to play for this line. Overrides speaker shot if one is set |
 |Conditions|TArray\<UNarrativeCondition\>|Optional conditions the line must pass for it to be selected |
 |Alternative Lines|TArray\<FDialogueLine\>|If alternative lines are added in here, narrative will randomly select either the main line or one of the alternatives|
 |Is Skippable|bool|Should pressing the enter key allow this line to be skipped?|
@@ -155,7 +155,7 @@ yourself if you're making your own dialogue UI - it is readable from Blueprints|
 |Conditions|TArray\<UNarrativeCondition\>|This node only appears if the following conditions are met. In multiplayer games the server will check the conditions to ensure your game is server authoritative.|
 |Events|TArray\<UNarrativeEvent\>|Events that should fire when this is reached. These are supported by both quests and dialogues, and will fire on both client and server|
 
-
+## Narrative Dialogue Sequence
 
 ## Tagged Dialogue Set  
 **_Narrative Base class :_ UTaggedDialogueSet** (DataAsset)  
@@ -329,6 +329,7 @@ The GoalItem contains all the data needed for a specific activity to run and wil
 |Require Tags|FGameplayTagContainer|We'll require these tags to be on the owner to act on this goal|
 
 ## Player
+
 ### Player Character
 ### Player Controller
 ### Player State
@@ -377,7 +378,15 @@ Base for Appearance class
 the Gameplay Ability System isn't a feature of Narrative : it's a Unreal Engine feature. It's a very powerful framework, multiplayer ready, but it requires C++ for its setup and to be able to use some of the functionnalities. If you do not know C++, or if you want to be able to do everything BP only, I suggest to get the cheap plugin [Gameplay Blueprint Attributes](https://www.fab.com/listings/a7de98c4-51f5-4c4a-8dbc-52aff9d14e40).  
 Narrative do few additions to GAS, and you will find them detailed here.  
 For Unreal GAS documentation, please check [Tranek GAS Documentation](https://github.com/tranek/GASDocumentation) instead.
+Unreal released a course on GAS, I also suggest to check it
 
+## Narrative Gameplay Ability
+
+**_Narrative Base class :_ UNarrativeGameplayAbility** (Child of **UGameplayAbility**)  
+
+###NarrativeCombatAbility
+
+**_Narrative Base class :_ UNarrativeCombatAbility** (Child of **UNarrativeGameplayAbility**) 
 
 # Narrative Pro Changelog
 Because the changelog available on Narrative Pro official documentation only contains the changelog of the current version, I store here the history of the changelogs.
